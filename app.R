@@ -42,11 +42,6 @@ ui <- fluidPage(
                             plotOutput(outputId = "world_map")))
       )
 
-#' Example highlighted country to troubleshoot
-afghanistan <- world %>% 
-                  filter(name_long == "Afghanistan") %>% 
-                  select(geom)
-
 #' Subsetting dataset to just what user wants (on server side now):
 server <- function(input, output) {
 
