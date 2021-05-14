@@ -26,6 +26,9 @@ world$`Life Expectancy` <- formatC(world$`Life Expectancy`, digits = 3)
 
 #' Create the user interface for app:
 ui <- fluidPage(
+  
+          # Theme
+          theme = shinytheme("cosmo"),
           
           # Title
           titlePanel("Choose a Country"),
@@ -37,8 +40,7 @@ ui <- fluidPage(
                                            choices = unique(world$name_long))),
                   mainPanel(p("Country's Stats:"),
                             tableOutput(outputId = "lifeexp_table"),
-                            p("Country's Location:"),
-                            plotOutput(outputId = "world_map")))
+                            plotOutput(outputId = "world_map"), align = "left"))
       )
 
 #' Subsetting dataset to just what user wants (on server side now):
@@ -52,7 +54,7 @@ server <- function(input, output) {
           
           # Life expectancy table: Output
           output$lifeexp_table <- renderTable({
-                                      lifeexp()})
+                                      lifeexp()}, align = 'r') # Text aligned to right in columns
             
           # World map plot: Input
           country <- reactive({
