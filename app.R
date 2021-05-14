@@ -2,14 +2,13 @@
 # Load relevant libraries
 library(here) # Setup
 library(sf) # Using vector data   
-library(spData) # World dataset
+library(spData) # Includes world dataset
 library(shiny) # Shiny
 library(shinythemes) # Shiny themes
 library(tidyverse) # Tidyverse data manipulation
 library(scales) # Number formatting
 
-#' World dataset
-
+#' Making world dataset into an object and re-formatting
 world <- world %>%
   rename("Subregion" = "subregion") %>%
   rename("Area in km2" = "area_km2") %>%
